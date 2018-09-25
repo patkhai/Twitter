@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.7.3)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
+  - KeychainAccess (3.1.1)
+  - KRActivityIndicatorView (2.1.2)
+  - OAuthSwift (1.2.2)
+  - OAuthSwiftAlamofire (0.2.0):
+    - Alamofire
+    - OAuthSwift
+  - PKHUD (5.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage (~> 3.3)
+  - KeychainAccess
+  - KRActivityIndicatorView
+  - OAuthSwift
+  - OAuthSwiftAlamofire
+  - PKHUD (~> 5.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - KeychainAccess
+    - KRActivityIndicatorView
+    - OAuthSwift
+    - OAuthSwiftAlamofire
+    - PKHUD
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
+  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
+  KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
+  OAuthSwift: 27b34fe80b76b67cd8f45571e0be2432bc9f6de1
+  OAuthSwiftAlamofire: e51f11ff579dd4293bfe2a1a24c658caad4dac35
+  PKHUD: 62ea46a1e88c4def1da784878d199bb54c841e3c
+
+PODFILE CHECKSUM: 3194a807cc94afb605571254ea6509927a52216b
+
+COCOAPODS: 1.5.3
