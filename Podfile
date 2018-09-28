@@ -13,6 +13,7 @@ target 'Twitter' do
   pod 'AlamofireImage', '~> 3.3'
   pod "KRActivityIndicatorView"
   pod 'PKHUD', '~> 5.0'
+  pod 'DateToolsSwift'
 
 
   target 'TwitterTests' do
