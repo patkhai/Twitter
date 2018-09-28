@@ -80,7 +80,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func didSignout(_ sender: Any) {
         APIManager.shared.logout()
         User.current = nil
-        self.dismiss(animated: false, completion: nil)
+        self.performSegue(withIdentifier: "signout", sender: nil)
     }
     
     

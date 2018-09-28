@@ -56,7 +56,7 @@ class APIManager: SessionManager {
     /**
      This method logs out the user by clearing the application's User.current property and sends a notification that the user did log out.
      */
-    func logout() {
+     func logout() {
         clearCredentials()
         User.current = nil
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
