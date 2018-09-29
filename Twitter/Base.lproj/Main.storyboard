@@ -26,13 +26,24 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JLw-hw-xHh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_Logo_Blue-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lkv-Z4-dKl">
+                                <rect key="frame" x="87" y="162" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="qPz-bC-Sn5"/>
+                                    <constraint firstAttribute="height" constant="128" id="s5V-dF-0Ff"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Lkv-Z4-dKl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="142" id="2wM-uy-JTm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FLI-0Z-RZG" secondAttribute="trailing" constant="51" id="8NR-DE-gLh"/>
                             <constraint firstItem="FLI-0Z-RZG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="Xjo-ro-jI6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lkv-Z4-dKl" secondAttribute="trailing" constant="87" id="e5D-ne-9fi"/>
+                            <constraint firstItem="FLI-0Z-RZG" firstAttribute="top" secondItem="Lkv-Z4-dKl" secondAttribute="bottom" constant="48" id="eT6-SJ-ia1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FLI-0Z-RZG" secondAttribute="bottom" constant="338" id="mu1-5I-sBS"/>
                             <constraint firstItem="FLI-0Z-RZG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="318" id="ryP-GM-Wrv"/>
+                            <constraint firstItem="Lkv-Z4-dKl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="s0X-7n-Bb0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -235,6 +246,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Twitter_Logo_Blue-1" width="400" height="400"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
