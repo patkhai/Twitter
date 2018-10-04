@@ -1,9 +1,9 @@
 # Twitter
-# Project 5 - *Twitter*
+# Project 5 & 6 - *Twitter*
 
 **Name of your app** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **4** hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
@@ -17,6 +17,10 @@ The following **required** functionality is completed:
 - [x] User can pull to refresh. (1pt)
 - [x] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet. (2pts)
 - [x] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation. (1pt)
+- [x] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply.
+- [x] User can compose a new tweet by tapping on a compose button.
+- [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140)
+- [x] User can view their profile in a profile tab, Contains the user header view: picture and tagline, Contains a section    with the users basic stats: # tweets, # following, # followers
 
 The following **stretch** features are implemented:
 
@@ -25,14 +29,17 @@ The following **stretch** features are implemented:
 - [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. (1pt)
 - [ ] Links in tweets are clickable. (2pts)
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client. (2pts)
+- [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network. 
+- [x] User can switch between timeline, mentions, or profile view through a tab bar.
 
 The following **additional** features are implemented:
+- [x] Make the profile image rounded for all views
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
+1. 
 2.
 
 ## Video Walkthrough
@@ -40,11 +47,16 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 ![Imgur](https://i.imgur.com/tfuE6QO.gif)
+
+![Imgur](https://i.imgur.com/Hs7C9MX.gif)
+
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- working with APIs at first
 
 ## Credits
 
