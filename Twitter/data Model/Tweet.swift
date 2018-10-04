@@ -25,13 +25,24 @@ class Tweet {
     var createdAtString: String // Display date
     var timeAgoSinceNow: String // Display when tweet was created
     
-    
+    var retweetedByUser : User?
     //Properties to associate the tweet with a user
     var user: User // Contains name, screenname, etc. of tweet author
     
     
     // MARK: - Create initializer with dictionary
     init(dictionary: [String: Any]) {
+        var dictionary = dictionary
+        // Is this a re-tweet?
+        if let originalTweet = dictionary["retweeted_status"] as? [String: Any] {
+            let userDictionary = dictionary["user"] as! [String: Any]
+            self.retweetedByUser = User(dictionary: userDictionary)
+            
+            // Change tweet to original tweet
+            dictionary = originalTweet
+        }
+        
+        
         //Home Tweets Initialization
         id = dictionary["id"] as! Int64
         text = dictionary["text"] as! String

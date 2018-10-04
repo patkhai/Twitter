@@ -1,65 +1,35 @@
 //
-//  TimeTableViewCell.swift
+//  DetailViewController.swift
 //  Twitter
 //
-//  Created by Pat Khai on 9/24/18.
+//  Created by Pat Khai on 10/3/18.
 //  Copyright © 2018 Pat Khai. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
+import Alamofire
 
-class TimeTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var imageProfile: UIImageView!
-    @IBOutlet weak var status: UILabel!
-    
-    @IBOutlet weak var likeButtom: UIButton!
+class DetailViewController: UIViewController {
+
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var likeCount: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var replyCount: UILabel!
     @IBOutlet weak var replyButton: UIButton!
-    @IBOutlet weak var likesID: UILabel!
-    @IBOutlet weak var retweetID: UILabel!
-    
-    @IBOutlet weak var userID: UILabel!
+    @IBOutlet weak var tweetButton: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var username: UILabel!
-    
-    
-    @IBOutlet weak var commentID: UILabel!
+    @IBOutlet weak var userID: UILabel!
     
     
     var liked: Bool?
     var retweeted: Bool?
     var commented: Bool?
     
-    var tweet: Tweet! {
-        didSet {
-            //username and @
-            username.text = tweet.user.name
-            userID.text = "@\(tweet.user.screenName)"
-            
-            //Image Id
-            
-            imageProfile.layer.borderWidth = 1
-            imageProfile.layer.masksToBounds = false
-            imageProfile.layer.borderColor = UIColor.clear.cgColor
-            imageProfile.layer.cornerRadius = imageProfile.frame.height/2
-            imageProfile.clipsToBounds = true
-            imageProfile.af_setImage(withURL: tweet.user.profilePictureURL)
-            
-            //likes , retweet, comments
-            status.text = tweet.text
-            liked = tweet.favorited!
-            retweeted = tweet.retweeted
-            
-            date.text = tweet.timeAgoSinceNow
-          updatePost()
-            
-            
-            
-        }
-    }
-    
+    var tweet: Tweet!
+       
     @IBAction func likes(_ sender: UIButton) {
         if tweet.favorited == false {
             tweet.favorited = true
@@ -73,14 +43,14 @@ class TimeTableViewCell: UITableViewCell {
     }
     
     
- 
+    
     @IBAction func reTweet(_ sender: UIButton) {
         if tweet.retweeted == false {
             tweet.retweeted = true
             retweetTweet()
         } else {
             tweet.retweeted = false
-            unretweetTweet() 
+            unretweetTweet()
         }
         updatePost()
     }
@@ -88,9 +58,9 @@ class TimeTableViewCell: UITableViewCell {
     func updatePost() {
         //tweets are favorite
         if tweet.favorited == true {
-            self.likeButtom.setImage(#imageLiteral(resourceName: "favor-icon-red"), for: .normal)
+            self.likeButton.setImage(#imageLiteral(resourceName: "favor-icon-red"), for: .normal)
         } else {
-            self.likeButtom.setImage(#imageLiteral(resourceName: "favor-icon"), for: .normal)
+            self.likeButton.setImage(#imageLiteral(resourceName: "favor-icon"), for: .normal)
             
         }
         //tweet are retweet
@@ -101,23 +71,20 @@ class TimeTableViewCell: UITableViewCell {
         }
         //show counts of retweet
         if tweet.retweetCount > 0 {
-            retweetID.text = "\(tweet.retweetCount)"
+            retweetCount.text = "\(tweet.retweetCount)"
         }else {
-            retweetID.text = ""
+            retweetCount.text = ""
         }
         //show counts of favorite
         if tweet.favoriteCount! > 0 {
-            likesID.text = "\(tweet.favoriteCount!)"
+            likeCount.text = "\(tweet.favoriteCount!)"
         }else {
-            likesID.text = ""
+            likeCount.text = ""
         }
     }
     
     
-        
-    
-    @IBAction func comment(_ sender: Any) {
-    }
+
     
     
     func favoriteTweet() {
@@ -127,7 +94,7 @@ class TimeTableViewCell: UITableViewCell {
             }else if let tweet = tweet {
                 print("Liked the tweet NICE!: \n\(tweet.text)")
                 tweet.favoriteCount! += 1
-                self.likesID.text = "\(tweet.favoriteCount! + 1)"
+                self.likeCount.text = "\(tweet.favoriteCount! + 1)"
                 self.updatePost()
             }
         }
@@ -140,7 +107,7 @@ class TimeTableViewCell: UITableViewCell {
             } else if let tweet = tweet {
                 print("Liked the tweet NICE!:  \n\(tweet.text)")
                 tweet.favorited = false
-                self.likesID.text = "\(tweet.favoriteCount! - 1)"
+                self.likeCount.text = "\(tweet.favoriteCount! - 1)"
                 self.updatePost()
             }
         }
@@ -152,7 +119,7 @@ class TimeTableViewCell: UITableViewCell {
                 print("Error retweeting tweet: \(error.localizedDescription)")
             } else if let tweet = tweet {
                 print("Retweet the tweet NICE!: \n\(tweet.text)")
-                self.retweetID.text = "\(tweet.retweetCount)"
+                self.retweetCount.text = "\(tweet.retweetCount)"
                 self.updatePost()
             }
         }
@@ -164,24 +131,50 @@ class TimeTableViewCell: UITableViewCell {
                 print("Error retweeting tweet: \(error.localizedDescription)")
             } else if let tweet = tweet {
                 print("Retweet the tweet NICE!: \n\(tweet.text)")
-                 self.retweetID.text = "\(tweet.retweetCount - 1)"
+                self.retweetCount.text = "\(tweet.retweetCount - 1)"
                 self.updatePost()
             }
         }
     }
     
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        username.text = tweet.user.name
+        userID.text = "@\(tweet.user.screenName)"
+        
+        
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.clear.cgColor
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.clipsToBounds = true
+        profileImage.af_setImage(withURL: tweet.user.profilePictureURL)
+        
+        //likes , retweet, comments
+        tweetButton.text = tweet.text
+        liked = tweet.favorited!
+        retweeted = tweet.retweeted
+        
+        time.text = tweet.createdAtString
+        updatePost()
+        
+      
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

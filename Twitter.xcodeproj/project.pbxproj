@@ -20,6 +20,9 @@
 		342FE1B32159C8C600C69FC0 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FE1B22159C8C600C69FC0 /* Tweet.swift */; };
 		342FE1B52159CBB100C69FC0 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FE1B42159CBB100C69FC0 /* TimelineViewController.swift */; };
 		342FE1B82159CC4E00C69FC0 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342FE1B72159CC4E00C69FC0 /* TimeTableViewCell.swift */; };
+		34441DA72165E20200252DF7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34441DA62165E20200252DF7 /* DetailViewController.swift */; };
+		34441DA92165F86300252DF7 /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34441DA82165F86300252DF7 /* ComposeTweetViewController.swift */; };
+		34441DAB216695BB00252DF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34441DAA216695BB00252DF7 /* ProfileViewController.swift */; };
 		5B2DDDFEB4CD446321554B99 /* Pods_TwitterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABB19C859741649A29F4F37 /* Pods_TwitterTests.framework */; };
 		9BA0D7729589A6DE78290695 /* Pods_Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5B72B0A128368EE5D8A9B1 /* Pods_Twitter.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,9 @@
 		342FE1B42159CBB100C69FC0 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		342FE1B72159CC4E00C69FC0 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		342FE1B9215A233500C69FC0 /* twitter_alamofire_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = twitter_alamofire_demo.entitlements; sourceTree = "<group>"; };
+		34441DA62165E20200252DF7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		34441DA82165F86300252DF7 /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
+		34441DAA216695BB00252DF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4C20639CD97020C0DF288025 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 		5ABB19C859741649A29F4F37 /* Pods_TwitterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5B72B0A128368EE5D8A9B1 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,9 @@
 			children = (
 				342FE1AD2159C2E000C69FC0 /* LoginViewController.swift */,
 				342FE1B42159CBB100C69FC0 /* TimelineViewController.swift */,
+				34441DA62165E20200252DF7 /* DetailViewController.swift */,
+				34441DA82165F86300252DF7 /* ComposeTweetViewController.swift */,
+				34441DAA216695BB00252DF7 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -438,13 +447,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34441DA92165F86300252DF7 /* ComposeTweetViewController.swift in Sources */,
 				342FE1B82159CC4E00C69FC0 /* TimeTableViewCell.swift in Sources */,
+				34441DAB216695BB00252DF7 /* ProfileViewController.swift in Sources */,
 				342FE1B12159C83400C69FC0 /* User.swift in Sources */,
 				342FE1B32159C8C600C69FC0 /* Tweet.swift in Sources */,
 				342FE1AE2159C2E000C69FC0 /* LoginViewController.swift in Sources */,
 				342FE1AB2159BE8800C69FC0 /* APIManager.swift in Sources */,
 				342FE17C2159BADB00C69FC0 /* AppDelegate.swift in Sources */,
 				342FE1B52159CBB100C69FC0 /* TimelineViewController.swift in Sources */,
+				34441DA72165E20200252DF7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

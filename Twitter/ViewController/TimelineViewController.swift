@@ -13,12 +13,19 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var tweets: [Tweet] = [] {
         didSet {
-           
-            refreshControl.endRefreshing()
-            tableView.reloadData()
+            
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.estimatedRowHeight = 190
         }
     }
     var refreshControl = UIRefreshControl()
+    
+    @IBAction func compose(_ sender: Any) {
+         performSegue(withIdentifier: "compose", sender: sender)
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,11 +33,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 190
+   
 
         
         setUpRefreshControl()
@@ -62,6 +65,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         tableView.reloadData()
+        
     }
     
     @objc func refreshTweets(_ refreshControl: UIRefreshControl) {
@@ -83,7 +87,20 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         self.performSegue(withIdentifier: "signout", sender: nil)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let tweet = tweets[indexPath.row]
+                let vc = segue.destination as! DetailViewController
+                vc.tweet = tweet
+            }
+        }
+        else if segue.identifier == "compose" {
+            let vc = segue.destination as! ComposeTweetViewController
+            vc.delegate = self
+        }
+    }
    
 
     override func didReceiveMemoryWarning() {
@@ -102,4 +119,13 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     */
 
+}
+
+
+extension TimelineViewController: ComposeTweetViewControllerDelegate {
+    func did(post: Tweet) {
+        self.getTimeLine()
+    }
+    
+    
 }
